@@ -2,7 +2,7 @@ ENV['SINATRA_ENV'] ||= "development"
 ENV['RACK_ENV'] ||= "development"
 # Sinatra active-support is a dependent of sinatra-contrib which is not being used.
 # This is raising an error that activesupport is not being loaded to hash before sinatra::base
-SINATRA_ACTIVESUPPORT_WARNING = false
+ENV['SINATRA_ACTIVESUPPORT_WARNING'] = 'false'
 
 require 'bundler'
 Bundler.require(:default, ENV['SINATRA_ENV'])

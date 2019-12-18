@@ -1,7 +1,7 @@
 require "bundler"
+require "sinatra/activerecord/rake"
 Bundler.require
 
-require "sinatra/activerecord/rake"
 
 # Suggested from https://blog.carbonfive.com/2013/06/28/sinatra-best-practices-part-two/
 # require 'rspec/core/rake_task'

@@ -1,0 +1,13 @@
+# specify which database and adapter to use for which environment
+
+development:
+  adapter: postgresql
+  database: gut-savvy-development
+
+test:
+  adapter: postgresql
+  database: gut-savvy-test
+
+production:
+  adapter: postgresql
+  database: gut-savvy-production

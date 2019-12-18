@@ -4,6 +4,10 @@ ENV['SINATRA_ENV'] ||= "development"
 ENV['RACK_ENV'] ||= "development"
 Bundler.require(:default, ENV['SINATRA_ENV'])
 
+# Sinatra active-support is a dependent of sinatra-contrib which is not being used.
+# This is raising an error that activesupport is not being loaded to hash before sinatra::base
+SINATRA_ACTIVESUPPORT_WARNING = false
+
 # get the path of the root of the app
 # APP_ROOT = File.expand_path("..", __dir__)
 

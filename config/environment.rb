@@ -7,8 +7,3 @@ Bundler.require(:default, ENV['SINATRA_ENV'])
 
 # Requires all files in app directory (require_all gem)
 require_all 'app'
-
-# configure ApplicationController settings
-class ApplicationController < Sinatra::Base
-  set :method_override, true
-end

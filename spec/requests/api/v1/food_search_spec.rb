@@ -4,9 +4,16 @@ RSpec.describe 'Food Search API Endpoint', type: :request do
   it 'shows the food name, brand, and list of ingredients' do
     json_response = File.read('spec/fixtures/greek_yogurt_info.json')
 
-    stub_request(:post, "https://api.nal.usda.gov/fdc/v1/search?api_key=#{ENV['FDC_API_KEY']}")
-      .with(body: '{"generalSearchInput":"818290013613"}', headers: { 'Content-Type'=>'application/json' })
-      .to_return(status: 200, body: json_response)
+    stub_request(:post, "https://api.nal.usda.gov/fdc/v1/search?api_key=#{ENV['FDC_API_KEY']}").
+         with(
+           body: "{\"generalSearchInput\":\"818290013613\"}",
+           headers: {
+       	  'Accept'=>'*/*',
+       	  'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3',
+       	  'Content-Type'=>'application/json',
+       	  'User-Agent'=>'Faraday v0.17.1'
+           }).
+         to_return(status: 200, body: json_response, headers: {})
 
     get '/api/v1/food_search?upc=818290013613'
 

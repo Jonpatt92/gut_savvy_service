@@ -1,0 +1,23 @@
+{
+    "foodSearchCriteria": {
+        "generalSearchInput": "818290013613",
+        "pageNumber": 1,
+        "requireAllWords": false
+    },
+    "totalHits": 1,
+    "currentPage": 1,
+    "totalPages": 1,
+    "foods": [
+        {
+            "fdcId": 463561,
+            "description": "GREEK YOGURT",
+            "dataType": "Branded",
+            "gtinUpc": "818290013613",
+            "publishedDate": "2019-04-01",
+            "brandOwner": "Chobani, Inc.",
+            "ingredients": "YOGURT (CULTURED PASTEURIZED NONFAT MILK, CREAM, LIVE AND ACTIVE CULTURES: S. THERMOPHILUS, L. BULGARICUS, L. ACIDOPHILUS, BIFIDUS AND L. CASEI), EVAPORATED CANE JUICE, SWEETENED CONDENSED MILK, CHOCOLATE, COCOA BUTTER, FRUIT JUICE CONCENTRATE (FOR COLOR), NATURAL FLAVORS, PECTIN, LOCUST BEAN GUM, GUAR GUM.",
+            "allHighlightFields": "<b>GTIN/UPC</b>: <em>818290013613</em>",
+            "score": -747.62915
+        }
+    ]
+}

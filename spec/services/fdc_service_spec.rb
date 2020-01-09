@@ -2,19 +2,6 @@ require 'spec_helper'
 
 RSpec.describe FDCService, type: :model do
   it 'food info' do
-    json_response = File.read('spec/fixtures/quaker_oats_bar_info.json')
-
-    stub_request(:post, "https://api.nal.usda.gov/fdc/v1/search?api_key=#{ENV['FDC_API_KEY']}").
-         with(
-           body: "{\"generalSearchInput\":\"030000400036\"}",
-           headers: {
-       	  'Accept'=>'*/*',
-       	  'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3',
-       	  'Content-Type'=>'application/json',
-       	  'User-Agent'=>'Faraday v0.17.1'
-           }).
-         to_return(status: 200, body: json_response, headers: {})
-
     service = FDCService.new
     expected_response = {
       fdcId: 538677,

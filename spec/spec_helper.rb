@@ -3,7 +3,6 @@ require 'simplecov'
 require 'rack/test'
 require 'rspec'
 require 'capybara/dsl'
-require 'webmock/rspec'
 require 'dotenv/load'
 
 SimpleCov.start

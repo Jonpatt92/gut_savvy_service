@@ -1,13 +1,19 @@
-require_relative './config/environment'
-# require 'rspec'
+require './config/environment'
+require 'simplecov'
+require 'rack/test'
+require 'rspec'
 require 'capybara/dsl'
-require 'bundler'
+require 'dotenv/load'
 
-ENV["RACK_ENV"] ||= "test"
-Bundler.require(:default, ENV["RACK_ENV"])
+SimpleCov.start
 
-Capybara.app = ApplicationController
+ENV['RACK_ENV'] = 'test'
 
-RSpec.configure do |c|
-  c.include Capybara::DSL
+require File.expand_path '../../gut_savvy_app.rb', __FILE__
+
+module RSpecMixin
+  include Rack::Test::Methods
+  def app() Sinatra::Application end
 end
+
+RSpec.configure { |c| c.include RSpecMixin }

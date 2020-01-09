@@ -1,5 +1,5 @@
 require 'faraday'
-require 'dotenv/load'
+# require 'dotenv/load'
 
 class FDCService
   def food_info(upc)

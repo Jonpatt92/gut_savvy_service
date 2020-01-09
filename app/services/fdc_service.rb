@@ -3,21 +3,23 @@ require 'dotenv/load'
 
 class FDCService
   def food_info(upc)
-    @food_info ||= get_food_info(upc)
-  end
-
-  def get_food_info(upc)
-    response = conn.post('search') do |req|
-      req.body = {generalSearchInput: upc}.to_json
-    end
-
-    JSON.parse(response.body, symbolize_names: true)[:foods].first
-
-    # raw_food_data = JSON.parse(response.body, symbolize_names: true)
-    # raw_food_data[:foods].first if raw_food_data[:foods]
+    @food_info ||= parse_food_info(upc)
   end
 
   private
+
+  def parse_food_info(upc)
+    response = get_food_info(upc)
+    raw_food_data = JSON.parse(response.body, symbolize_names: true)
+
+    raw_food_data[:foods].first || Hash.new
+  end
+
+  def get_food_info(upc)
+    conn.post('search') do |req|
+      req.body = {generalSearchInput: upc}.to_json
+    end
+  end
 
   def conn
     Faraday.new(url: 'https://api.nal.usda.gov/fdc/v1') do |faraday|

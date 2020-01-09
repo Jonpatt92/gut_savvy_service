@@ -3,7 +3,7 @@ require 'simplecov'
 require 'rack/test'
 require 'rspec'
 require 'capybara/dsl'
-require 'dotenv/load'
+# require 'dotenv/load'
 
 SimpleCov.start
 

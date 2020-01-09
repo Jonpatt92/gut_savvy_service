@@ -1,6 +1,10 @@
 require 'spec_helper'
 
 RSpec.describe 'Food Search API Endpoint', type: :request do
+  def app
+    GutSavvyApp
+  end
+
   it 'shows the food name, brand, and list of ingredients' do
     get '/api/v1/food_search?upc=818290013613'
 

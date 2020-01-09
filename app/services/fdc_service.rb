@@ -9,10 +9,16 @@ class FDCService
   private
 
   def parse_food_info(upc)
+    return Hash.new unless valid_upc?(upc)
+
     response = get_food_info(upc)
     raw_food_data = JSON.parse(response.body, symbolize_names: true)
 
     raw_food_data[:foods].first || Hash.new
+  end
+
+  def valid_upc?(upc)
+    upc.length == 12 || /\A\d+\z/.match(upc)
   end
 
   def get_food_info(upc)

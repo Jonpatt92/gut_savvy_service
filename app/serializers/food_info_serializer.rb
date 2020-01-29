@@ -50,12 +50,12 @@ class FoodInfoSerializer
       .gsub(/\(\)\*/, '')
       .gsub('ORGANIC ', '')
       .gsub('100%', '')
+      .gsub('REAL', '')
       .split('.').first
       .split(', 2%').first
       .split(', CONTAINS').first
+      .split('AND').first
       .split(', ')
-      .split('AND')
-      .flatten
   end
 
   def format_json

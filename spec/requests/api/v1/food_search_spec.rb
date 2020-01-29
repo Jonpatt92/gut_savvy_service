@@ -16,7 +16,7 @@ RSpec.describe 'Food Search API Endpoint', type: :request do
     expect(food_json['data']['name']).to eq('GREEK YOGURT')
     expect(food_json['data']['brand']).to eq('Chobani, Inc.')
     expect(food_json['data']['upc']).to eq('818290013613')
-    expect(food_json['data']['ingredients'].length).to eq(10)
+    expect(food_json['data']['ingredients'].length).to eq(9)
     expect(food_json['data']['ingredients'].last).to eq('GUAR GUM')
   end
 

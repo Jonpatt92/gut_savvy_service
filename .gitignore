@@ -1,4 +1,5 @@
 # Ignore environment configuration
+.env
 
 # Ignore simplecov results
 /coverage
